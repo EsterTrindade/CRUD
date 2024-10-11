@@ -58,8 +58,8 @@ def listarIndividual():
 @app.route('/atualizar')
 def atualizar():
     try:
-        dados = {"nome":"João"}
-        requisicao = requests.patch(f'{link}/cadastro/-O8miKUUwIzpK5PxTx2Q/.json', data=json.dumps(dados)) #atualizar
+        dados = {}
+        requisicao = requests.patch(f'{link}/cadastro/{cpf}/.json', data=json.dumps(dados)) #atualizar
         return "Atualizado com sucesso!"
     except Exception as e:
         return f'Algo deu errado \n {e}'
@@ -67,7 +67,7 @@ def atualizar():
 @app.route('/excluir')
 def excluir():
     try:
-        requisicao = requests.delete(f'{link}/cadastro/-O8miKUUwIzpK5PxTx2Q/.json')
+        requisicao = requests.delete(f'{link}/cadastro/-O8wzTQSP7zid_iv1msV/.json')
         return "Excluído com sucesso!"
     except Exception as e:
         return f'Algo deu errado\n {e}'
