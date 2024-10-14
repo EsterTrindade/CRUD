@@ -1,5 +1,9 @@
 {% extends 'base.html' %}
 {% block conteudo %}
+
+<h1>Cadastre-se!</h1>
+<br>
+
   <form action="/cadastrarUsuario" method="POST">
 
     <label>Nome: </label>
@@ -14,14 +18,17 @@
     <label>Endereço: </label>
     <input type="text" name="endereco" id="endereco"/><br><br>
 
-    <button>Cadastrar</button><br>
+
+    <button id="btncadastro">Cadastrar</button><br>
+
   </form><br>
 
-<div class="btn-group" role="group" aria-label="Basic outlined example">
-  <button type="button" class="btn btn-outline-danger"><a href="/listar">Consultar Tudo</a></button>
-  <button type="button" class="btn btn-outline-danger"><a href="/listarIndividual">Consultar Individual</a></button>
-  <button type="button" class="btn btn-outline-danger"><a href="/atualizar">Atualizar</a></button>
-  <button type="button" class="btn btn-outline-danger">  <a href="/excluir">Excluir</a></button>
+<div>
+  <button type="button" class="btn btn-outline-secondary"><a href="/listar">Consultar Tudo</a></button>
+  <button type="button" class="btn btn-outline-secondary"><a href="/listarIndividual">Consultar Individual</a></button>
+  <button type="button" class="btn btn-outline-primary"><a href="/atualizar">Atualizar</a></button>
+  <button type="button" class="btn btn-outline-danger"><a href="/excluir">Excluir</a></button>
 </div>
+
 
 {% endblock %}
