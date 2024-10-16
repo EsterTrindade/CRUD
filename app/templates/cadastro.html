@@ -2,8 +2,10 @@
 {% block conteudo %}
 
 <h1>Cadastre-se!</h1>
+<h3>Realize seu cadastro rápido e fácil! :)</h3>
 <br>
 
+<div id="forcadastro">
   <form action="/cadastrarUsuario" method="POST">
 
     <label>Nome: </label>
@@ -19,16 +21,21 @@
     <input type="text" name="endereco" id="endereco"/><br><br>
 
 
-    <button id="btncadastro">Cadastrar</button><br>
+    <button id="btncadastro">Cadastrar</button><br><br>
+
+    <div>
+      <button type="button" class="btn btn-outline-primary"><a href="/listar">Consultar Tudo</a></button>
+      <button type="button" class="btn btn-outline-primary"><a href="/listarIndividual">Consultar Individual</a></button>
+      <button type="button" class="btn btn-outline-secondary"><a href="/atualizacao">Atualizar</a></button>
+      <button type="button" class="btn btn-outline-danger"><a href="/excluir">Excluir</a></button>
+    </div>
 
   </form><br>
 
-<div>
-  <button type="button" class="btn btn-outline-secondary"><a href="/listar">Consultar Tudo</a></button>
-  <button type="button" class="btn btn-outline-secondary"><a href="/listarIndividual">Consultar Individual</a></button>
-  <button type="button" class="btn btn-outline-primary"><a href="/atualizar">Atualizar</a></button>
-  <button type="button" class="btn btn-outline-danger"><a href="/excluir">Excluir</a></button>
 </div>
+
+
+
 
 
 {% endblock %}

@@ -18,6 +18,11 @@ def contato():
 def cadastro():
     return render_template('cadastro.html', titulo="cadastro")
 
+@app.route('/atualizacao')
+def atualizacao():
+    return render_template('atualizacao.html', titulo="atualizar")
+
+
 @app.route('/cadastrarUsuario', methods=['POST'])
 def cadatrarUsuario():
     try:
@@ -46,7 +51,7 @@ def listarIndividual():
     try:
         requisicao = requests.get(f'{link}/cadastro/.json') #solicitando
         dicionario = requisicao.json()
-        idCadastro = "" #coletar o id
+
         for codigo in dicionario:
             chave = dicionario[codigo]['cpf']
             if chave == '1546468':
@@ -55,14 +60,24 @@ def listarIndividual():
     except Exception as e:
         return f'Algo deu errado \n {e}'
 
-@app.route('/atualizar')
+
+@app.route('/atualizar', methods=['POST'])
 def atualizar():
     try:
-        dados = {}
-        requisicao = requests.patch(f'{link}/cadastro/{cpf}/.json', data=json.dumps(dados)) #atualizar
-        return "Atualizado com sucesso!"
+        requisicao = requests.get(f'{link}/cadastro/.json')
+        dicionario = requisicao.json()
+        cpf = request.form.get("cpf")
+        nome = request.form.get("nome")
+        telefone = request.form.get("telefone")
+        endereco = request.form.get("endereco")
+        dados = {"cpf": cpf, "nome": nome, "telefone": telefone, "endereco": endereco}
+        for codigo in dicionario:
+                chave = dicionario[codigo]['cpf']
+                if chave == cpf:
+                    requisicao = requests.patch(f'{link}/cadastro/{codigo}/.json', data=json.dumps(dados))
+                    return "Atualizado com sucesso!"
     except Exception as e:
-        return f'Algo deu errado \n {e}'
+        return f'Algo deu errado\n {e}'
 
 @app.route('/excluir')
 def excluir():

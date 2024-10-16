@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+
+<h1> Atualize seu cadastro </h1>
+<br>
+
+<div>
+  <form action="/atualizar" method="POST">
+
+    <label>Informe seu CPF: </label>
+    <input type="text" name="cpf" id="cpf"/><br><br><br>
+
+      <h3> Atualize seus dados: </h3>
+
+    <label>Nome: </label>
+    <input type="text" name="nome" id="nome"/><br><br>
+
+    <label>Telefone: </label>
+    <input type="text" name="telefone" id="telefone"/><br><br>
+
+    <label>Endereço: </label>
+    <input type="text" name="endereco" id="endereco"/><br><br>
+
+    <button id="btncadastro">ATUALIZAR</button>
+</div>
+
+{% endblock %}

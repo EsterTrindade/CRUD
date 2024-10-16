@@ -1,11 +1,18 @@
 body{
-background-color: #000000;
+background-color: #ffffff;
 }
 
 h1{
-margin-top: 20px;
-font-size: 80px;
+font-size: 70px;
 text-align: center;
+color: #000000;
+margin-top: 30px;
+margin-bottom: 30px;
+}
+
+h3{
+text-align: center;
+color: #000000;
 }
 
 div{
@@ -28,13 +35,43 @@ color: #ffffff;
 font-size: 17px
 }
 
+/* FIM NAV */
+
+/* PÁGINA INICIAL (INDEX) */
+
+#btnindex{
+margin-left: 25%;
+width: 500px;
+height: 60px;
+font-size: 25px;
+margin-bottom: 30px;
+}
+
+
+
+/* FIM PÁGINA INICIAL (INDEX) */
+
 
 /* PÁGINA CADASTRO */
 
-form{
-margin-top: 50px;
+#forcadastro{
+margin-top: 10px;
+margin-bottom: 10px;
+padding-top: 30px;
+padding-bottom: 5px;
 text-align: center;
 background-color: #FFFFFF;
+border-radius: 20px;
+}
+
+label{
+font-size: 20px;
+}
+
+input{
+border-radius: 5px;
+border: ridge;
+width: 300px;
 }
 
 .btn{
