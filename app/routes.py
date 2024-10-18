@@ -22,6 +22,10 @@ def cadastro():
 def atualizacao():
     return render_template('atualizacao.html', titulo="atualizar")
 
+@app.route('/deletar')
+def deletar():
+    return render_template('deletar.html', titulo="excluir cadastro")
+
 
 @app.route('/cadastrarUsuario', methods=['POST'])
 def cadatrarUsuario():
@@ -79,10 +83,16 @@ def atualizar():
     except Exception as e:
         return f'Algo deu errado\n {e}'
 
-@app.route('/excluir')
+@app.route('/excluir', methods=['POST'])
 def excluir():
     try:
-        requisicao = requests.delete(f'{link}/cadastro/-O8wzTQSP7zid_iv1msV/.json')
+        requisicao = requests.get(f'{link}/cadastro/.json')
+        dicionario = requisicao.json()
+        cpf = request.form.get("cpf")
+        for codigo in dicionario:
+            chave = dicionario[codigo]['cpf']
+            if chave == cpf:
+                requisicao = requests.delete(f'{link}/cadastro/{codigo}/.json')
         return "Excluído com sucesso!"
     except Exception as e:
         return f'Algo deu errado\n {e}'
