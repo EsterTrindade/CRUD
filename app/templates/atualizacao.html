@@ -1,35 +1,38 @@
 {% extends 'base.html' %}
 {% block conteudo %}
 
-<h1> Atualize seu cadastro </h1>
-<br>
+<br><br>
 
-<div>
-  <form action="/atualizar" method="POST">
+<div class="container">
+  <form class="form" action="/atualizar" method="POST">
+    <p class="title">Atualize seus dados</p>
+    <p class="message">Informe seu CPF:</p>
 
-    <label>CPF: </label><br>
-    <input type="text" name="cpf" id="cpf" placeholder="Informe seu CPF..."/><br><br><br>
+    <label>
+    <input class="input" type="text" name="cpf" id="cpf">
+    <span>CPF</span></label><br><br>
 
-      <h3> Atualize seus dados: </h3>
+    <label>
+    <input class="input" type="text" name="nome" id="nome">
+    <span>Nome</span></label><br>
 
-    <label>Nome: </label><br>
-    <input type="text" name="nome" id="nome" placeholder="Informe seu nome..."/><br><br>
+    <label>
+    <input class="input" type="text" name="telefone" id="telefone">
+    <span>Telefone</span></label><br>
 
-    <label>Telefone: </label><br>
-    <input type="text" name="telefone" id="telefone" placeholder="EX: (11)99999-9999"/><br><br>
+    <label>
+    <input class="input" type="text" name="endereco" id="endereco">
+    <span>Endereço</span></label><br>
 
-    <label>Endereço: </label><br>
-    <input type="text" name="endereco" id="endereco" placeholder="Rua, bairro, complemento, nº"/><br><br>
-
-    <button id="btncadastro">ATUALIZAR</button><br><br>
-
-    <div>
-      <button type="button" class="btn btn-outline-primary"><a href="/listar">Consultar Tudo</a></button>
-      <button type="button" class="btn btn-outline-primary"><a href="/listarIndividual">Consultar Individual</a></button>
-      <button type="button" class="btn btn-outline-secondary"><a href="/cadastro">Cadastrar</a></button>
-      <button type="button" class="btn btn-outline-danger"><a href="/deletar">Excluir</a></button>
-    </div><br>
+    <button class="submit">Atualizar</button>
   </form>
-</div>
+</div><br><br>
+
+<div class="container">
+  <button type="button" class="btn btn-outline-primary"><a href="/listar">Consultar Tudo</a></button>
+  <button type="button" class="btn btn-outline-primary"><a href="/consultar">Consultar Individual</a></button>
+  <button type="button" class="btn btn-outline-secondary"><a href="/cadastro">Cadastrar</a></button>
+  <button type="button" class="btn btn-outline-danger"><a href="/deletar">Excluir</a></button>
+</div><br>
 
 {% endblock %}

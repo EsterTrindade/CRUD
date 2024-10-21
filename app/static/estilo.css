@@ -1,6 +1,8 @@
 body{
 background-color: #121212;
 align-itens: center;
+justify-content: center;
+align-items: center;
 }
 
 h1{
@@ -11,18 +13,15 @@ margin-top: 30px;
 margin-bottom: 30px;
 }
 
-h3{
+.container{
 text-align: center;
-color: #000000;
-}
-
-div{
-text-align: center;
+justify-content: center;
+align-items: center;
 }
 
 a{
 text-decoration: none;
-color: #000000;
+color: #ffffff;
 }
 
 /* NAV */
@@ -40,72 +39,321 @@ font-size: 17px
 
 /* PÁGINA INICIAL (INDEX) */
 
-#btnindex{
-margin-left: 34%;
-width: 500px;
-height: 60px;
-font-size: 25px;
-margin-bottom: 30px;
+.button {
+  margin-left: 41%;
+  cursor: pointer;
+  position: relative;
+  padding: 10px 100px;
+  font-size: 18px;
+  color: #ff0000;
+  border: 2px solid #ff0000;
+  border-radius: 34px;
+  background-color: transparent;
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+  overflow: hidden;
 }
 
+.button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 100px;
+  height: 50px;
+  border-radius: inherit;
+  scale: 0;
+  z-index: -1;
+  background-color: #ff0000;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+}
 
+.button:hover::before {
+  scale: 3;
+}
+
+.button:hover {
+  color: #ffffff;
+  scale: 1.1;
+  box-shadow: 0 0px 20px #ff0000;
+}
+
+.button:active {
+  scale: 1;
+}
 
 /* FIM PÁGINA INICIAL (INDEX) */
 
 
 /* PÁGINA CADASTRO */
 
-form{
-margin-top: 10px;
-margin-bottom: 10px;
-padding-top: 30px;
-padding-bottom: 5px;
-text-align: center;
-background-color: #FFFFFF;
-border-radius: 20px;
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 350px;
+  padding: 20px;
+  border-radius: 20px;
+  position: relative;
+  background-color: #1a1a1a;
+  color: #fff;
+  border: 1px solid #333;
+  margin-left: 36%;
 }
 
-label{
-font-size: 20px;
+.title {
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: -1px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-left: 30px;
+  color: #00bfff;
 }
 
-input{
-padding: 5px;
-border-radius: 10px;
-border: inset;
-width: 400px;
+.title::before {
+  width: 18px;
+  height: 18px;
 }
 
-.btn{
-text-decoration: none;
-background-color: #FFFFFF;
-text-color: #000000;
+.title::after {
+  width: 18px;
+  height: 18px;
+  animation: pulse 1s linear infinite;
 }
 
-#btncadastro{
-width: 150px;
-height: 60px;
-font-size: 20px;
-color: #556B2F;
-background-color: #FFFFFF;
-border-color: #556B2F;
-border-decoration: none;
-border-radius: 10px;
+.title::before,
+.title::after {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  left: 0px;
+  background-color: #6b0f08;
+}
+
+.message,
+.signin {
+  font-size: 14.5px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.signin {
+  text-align: center;
+}
+
+.signin a:hover {
+  text-decoration: underline royalblue;
+}
+
+.signin a {
+  color: #00bfff;
+}
+
+.flex {
+  display: flex;
+  width: 100%;
+  gap: 6px;
+}
+
+.form label {
+  position: relative;
+}
+
+.form label .input {
+  background-color: #333;
+  color: #fff;
+  width: 100%;
+  padding: 20px 05px 05px 10px;
+  outline: 0;
+  border: 1px solid rgba(105, 105, 105, 0.397);
+  border-radius: 10px;
+}
+
+.form label .input + span {
+  color: rgba(255, 255, 255, 0.5);
+  position: absolute;
+  left: 10px;
+  top: 0px;
+  font-size: 0.9em;
+  cursor: text;
+  transition: 0.3s ease;
+}
+
+.form label .input:placeholder-shown + span {
+  top: 12.5px;
+  font-size: 0.9em;
+}
+
+.form label .input:focus + span,
+.form label .input:valid + span {
+  color: #00bfff;
+  top: 0px;
+  font-size: 0.7em;
+  font-weight: 600;
+}
+
+.input {
+  font-size: medium;
+}
+
+.submit {
+  border: none;
+  outline: none;
+  padding: 10px;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 16px;
+  transform: .3s ease;
+  background-color: #00bfff;
+}
+
+.submit:hover {
+  background-color: #00bfff96;
+}
+
+@keyframes pulse {
+  from {
+    transform: scale(0.9);
+    opacity: 1;
+  }
+
+  to {
+    transform: scale(1.8);
+    opacity: 0;
+  }
 }
 
 /* FIM PÁGINA DE CADASTRO */
 
+
 /* PÁGINA EXCLUIR */
 
-#btnecluir{
-width: 150px;
-height: 60px;
-font-size: 20px;
-color: #FF0000;
-background-color: #FFFFFF;
-border-color: #FF0000;
-border-decoration: none;
-border-radius: 10px;
+.pushable {
+  position: relative;
+  background: transparent;
+  padding: 0px;
+  border: none;
+  cursor: pointer;
+  outline-offset: 4px;
+  outline-color: deeppink;
+  transition: filter 250ms;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: #6b0f08;
+  border-radius: 8px;
+  filter: blur(2px);
+  will-change: transform;
+  transform: translateY(2px);
+  transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
+}
+
+.edge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  border-radius: 8px;
+  background: linear-gradient(
+    to right,
+    #6b0f08 0%,
+    #6b0f08 8%,
+    #6b0f08 92%,
+    #6b0f08 100%
+  );
+}
+
+.front {
+  display: block;
+  position: relative;
+  border-radius: 8px;
+  background: #ff0000;
+  padding: 16px 32px;
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-size: 1rem;
+  transform: translateY(-4px);
+  transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
+}
+
+.pushable:hover {
+  filter: brightness(110%);
+}
+
+.pushable:hover .front {
+  transform: translateY(-6px);
+  transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
+}
+
+.pushable:active .front {
+  transform: translateY(-2px);
+  transition: transform 34ms;
+}
+
+.pushable:hover .shadow {
+  transform: translateY(4px);
+  transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
+}
+
+.pushable:active .shadow {
+  transform: translateY(1px);
+  transition: transform 34ms;
+}
+
+.pushable:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.card > * {
+  margin: 0;
+}
+
+.card__content {
+  font-size: 13px;
+  line-height: 18px;
+  color: #333;
+}
+
+.card__form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.card__form input {
+  margin-top: 10px;
+  outline: 0;
+  background: rgb(255, 255, 255);
+  box-shadow: transparent 0px 0px 0px 1px inset;
+  padding: 0.6em;
+  border-radius: 14px;
+  border: 1px solid #333;
+  color: black;
+}
+
+.sign-up:hover {
+  opacity: 0.8;
 }
 
 /* FIM PÁGINA EXCLUIR */
+
+/* TESTE PÁGINA CONSULTAR */
+
+
+/* FIM PÁGINA CONSULTAR */
+
+
+
+

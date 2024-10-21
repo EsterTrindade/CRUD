@@ -26,9 +26,13 @@ def atualizacao():
 def deletar():
     return render_template('deletar.html', titulo="excluir cadastro")
 
+@app.route('/consultar')
+def consultar():
+    return render_template('consultari.html', titulo="Consultar cadastro")
+
 
 @app.route('/cadastrarUsuario', methods=['POST'])
-def cadatrarUsuario():
+def cadastrarUsuario():
     try:
         cpf = request.form.get("cpf")
         nome = request.form.get("nome")
@@ -55,10 +59,10 @@ def listarIndividual():
     try:
         requisicao = requests.get(f'{link}/cadastro/.json') #solicitando
         dicionario = requisicao.json()
-
+        idCadastro = ""
         for codigo in dicionario:
             chave = dicionario[codigo]['cpf']
-            if chave == '1546468':
+            if chave == '1111111111':
                 idCadastro = codigo
                 return idCadastro
     except Exception as e:

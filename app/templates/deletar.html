@@ -2,24 +2,22 @@
 {% block conteudo %}
 
 <h1> Excluir Cadastro </h1>
-<br>
 
-<div>
-  <form action="/excluir" method="POST">
+<div class="container">
+    <form action="/excluir" method="POST">
+    <p class="card__content">Lamentamos saber que você deseja excluir seu cadastro. Se houver algo que possamos fazer para melhorar sua experiência, por favor, nos avise. Se ainda assim você quiser prosseguir, sua conta será removida permanentemente. Agradecemos pelo tempo que passou conosco!</p>
+    <div class="card__form">
+        <input placeholder="Informe seu CPF..." type="text" name="cpf" id="cpf"/><br><br>
 
-    <label>CPF: </label><br>
-    <input type="text" name="cpf" id="cpf" placeholder="Informe seu CPF..."/><br><br><br>
-
-    <button id="btnecluir">EXCLUIR</button><br><br>
-
-      <div>
+        <button class="pushable"><span class="shadow"></span><span class="edge"></span><span class="front"><a href="/excluir">Excluir</a></span></button>
+    </div>
+</div><br><br>
+      <div class="container">
           <button type="button" class="btn btn-outline-primary"><a href="/listar">Consultar Tudo</a></button>
-          <button type="button" class="btn btn-outline-primary"><a href="/listarIndividual">Consultar Individual</a></button>
+          <button type="button" class="btn btn-outline-primary"><a href="/consultar">Consultar Individual</a></button>
           <button type="button" class="btn btn-outline-secondary"><a href="/atualizacao">Atualizar</a></button>
           <button type="button" class="btn btn-outline-secondary"><a href="/cadastro">Cadastrar</a></button>
       </div><br>
 
-  </form>
-</div>
 
 {% endblock %}
